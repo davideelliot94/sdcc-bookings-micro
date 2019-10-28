@@ -38,13 +38,12 @@ app.post("/api/v1/bookingsById", async (req, res) => {
 });
 
 app.post("/api/v1/bookingsByDate", async (req, res) => {
-    const bookings = await Booking.find({ "startDate": req.body.stDate.stringify(),
-                                            "endDate": req.body.endDate.stringify()});
+    const bookings = await Booking.find({ "date": req.body.date.stringify()});
     res.json(bookings);
 });
-
+/*
 app.post("/api/v1/bookingsByRoomId", async (req, res) => {
-    const bookings = await Booking.find({ "RoomId": req.body.rid.stringify()});
+    const bookings = await Booking.find({ "Room": req.body.rid.stringify()});
     res.json(bookings);
 });
 
@@ -53,23 +52,27 @@ app.post("/api/v1/bookingsByTeaching", async (req, res) => {
     res.json(bookings);
 });
 
+
 app.post("/api/v1/bookingsByRoomAndDate", async (req, res) => {
     const bookingByRoom = await Booking.find({ "RoomId": req.body.rid.stringify()});
     const bookings = await Booking.find({ "startDate": bookingByRoom.startDate,
                                             "endDate": bookingByRoom.endDate});
     res.json(bookings);
 });
-
+*/
 
 
   
 app.post("/api/v1/makeBooking", async (req, res) => {
     const booking = new Booking({ id: req.body.id,
-        startDate: req.body.stDate,
-        endDate: req.body.endDate,
-        roomId: req.body.rid,
-        teaching: req.body.teach,
-        timestamp: req.body.now });
+        timestamp: req.body.now, 
+        date: req.body.date,
+        start: req.body.start,
+        end: req.body.end,
+        room: req.body.room,
+        teaching: req.body.teach
+        
+    });
 
     const savedBooking = await booking.save();
     res.json("La prenotazione "+savedBooking.id + " è avvenuta con successo");
