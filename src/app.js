@@ -26,13 +26,13 @@ app.get("/api/v1/rooms", async (req, res) => {
 });
 
 app.post("/api/v1/roomsById", async (req, res) => {
-    var id = req.body.stringify();
+    var id = req.body.id;
     const rooms = await Room.findById(id);
     res.json(rooms);
 });
 
 app.post("/api/v1/roomsByName", async (req, res) => {
-    const rooms = await Room.findOne({ "name": req.body.stringify()});
+    const rooms = await Room.findOne({ "name": req.body.name});
     res.json(rooms);
 });
 
@@ -46,29 +46,29 @@ app.get("/api/v1/bookings", async (req, res) => {
 });
 
 app.post("/api/v1/bookingsById", async (req, res) => {
-    id = req.body.stringify();
+    id = req.body.id;
     const bookings = await Booking.findById(id);
     res.json(bookings);
 });
 
 app.post("/api/v1/bookingsByDate", async (req, res) => {
-    const bookings = await Booking.find({ "date": req.body.date.stringify()});
+    const bookings = await Booking.find({ "date": req.body.date});
     res.json(bookings);
 });
 /*
 app.post("/api/v1/bookingsByRoomId", async (req, res) => {
-    const bookings = await Booking.find({ "Room": req.body.rid.stringify()});
+    const bookings = await Booking.find({ "Room": req.body.rid});
     res.json(bookings);
 });
 
 app.post("/api/v1/bookingsByTeaching", async (req, res) => {
-    const bookings = await Booking.find({ "teaching": req.body.teach.stringify()});
+    const bookings = await Booking.find({ "teaching": req.body.teach});
     res.json(bookings);
 });
 
 
 app.post("/api/v1/bookingsByRoomAndDate", async (req, res) => {
-    const bookingByRoom = await Booking.find({ "RoomId": req.body.rid.stringify()});
+    const bookingByRoom = await Booking.find({ "RoomId": req.body.rid});
     const bookings = await Booking.find({ "startDate": bookingByRoom.startDate,
                                             "endDate": bookingByRoom.endDate});
     res.json(bookings);
@@ -76,7 +76,7 @@ app.post("/api/v1/bookingsByRoomAndDate", async (req, res) => {
 */
 
   
-app.post("/api/v1/makeBooking", async (req, res) => {
+app.post("/api/v1/saveBooking", async (req, res) => {
     const booking = new Booking({ id: req.body.id,
         timestamp: req.body.now, 
         date: req.body.date,
@@ -102,7 +102,7 @@ app.get("/api/v1/teachings", async (req, res) => {
 
 app.post("/api/v1/teachingsById", async (req, res) => {
 
-    id = req.body.id.stringify();
+    id = req.body.id;
     const teaching = await Teaching.findById(id);
     res.json(teaching);
 });
