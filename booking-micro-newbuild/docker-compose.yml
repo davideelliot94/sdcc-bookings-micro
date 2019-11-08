@@ -1,0 +1,38 @@
+version: '3'
+services:
+
+  booking:
+    build: './booking'
+    ports:
+      - "3001:3000"
+    depends_on: 
+      - db
+    environment:
+      - MONGO_DB_URI=mongodb://db/microservices
+
+  rooms:
+    build: './rooms'
+    ports:
+      - "3002:3000"
+    depends_on: 
+      - db
+    environment:
+      - MONGO_DB_URI=mongodb://db/microservices
+
+  teaching:
+    build: './teaching'
+    ports:
+      - "3003:3000"
+    depends_on: 
+      - db
+    environment:
+      - MONGO_DB_URI=mongodb://db/microservices
+  
+  db:
+    image: mongo
+    volumes:
+      - ./booking/dataVol: /data/db
+    ports:
+      - "27017:27017"
+
+  
