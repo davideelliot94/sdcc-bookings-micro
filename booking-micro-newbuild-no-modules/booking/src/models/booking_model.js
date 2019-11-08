@@ -8,7 +8,7 @@ const BookingSchema = new Schema({
     end: Date,
     id_user: Number,
     room: {id: Number, name: String},
-    teaching: {id: Number,name:String,id_prof:String ,id_students:["foo","bar"]}
+    teaching: {id: Number,name:String,id_prof:String ,id_students:Number}
     
   });
   
