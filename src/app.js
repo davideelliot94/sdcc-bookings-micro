@@ -44,7 +44,7 @@ app.use(function (req, res, next) {
 
 
 app.get("/", (req, res) => {
-    res.json({ msg: "I'm booking service, I'm up!" });
+    res.json({ msg: "I'm booking service, I'm up! " });
 });
 
 /**
