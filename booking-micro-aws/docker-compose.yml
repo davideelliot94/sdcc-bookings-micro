@@ -1,0 +1,24 @@
+version: '3'
+services:
+
+  booking:
+    build: './booking'
+    ports:
+      - "3001:3000"
+    environment:
+      - MONGO_DB_URI=mongodb://amministratore:password@docdb-2019-11-15-14-53-32.cluster-cphif5zpmywz.us-east-1.docdb.amazonaws.com:27017/?ssl=true&ssl_ca_certs=rds-combined-ca-bundle.pem&replicaSet=rs0
+
+  rooms:
+    build: './rooms'
+    ports:
+      - "3002:3000"
+    environment:
+      - MONGO_DB_URI=mongodb://amministratore:password@docdb-2019-11-15-14-53-32.cluster-cphif5zpmywz.us-east-1.docdb.amazonaws.com:27017/?ssl=true&ssl_ca_certs=rds-combined-ca-bundle.pem&replicaSet=rs0
+
+  teaching:
+    build: './teaching'
+    ports:
+      - "3003:3000"
+    environment:
+      - MONGO_DB_URI=mongodb://amministratore:password@docdb-2019-11-15-14-53-32.cluster-cphif5zpmywz.us-east-1.docdb.amazonaws.com:27017/?ssl=true&ssl_ca_certs=rds-combined-ca-bundle.pem&replicaSet=rs0
+  
