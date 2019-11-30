@@ -1,0 +1,20 @@
+[
+  {
+    "name": "Sistemi Distribuiti e Cloud Computing",
+    "id_prof": 1,
+    "id_student": [
+        "Davide",
+        "Claudio",
+        "Stefano"
+    ]    
+  },
+  {
+    "name": "Sicurezza Informatica",
+    "id_prof": 1,
+    "id_student": [
+      "Davide",
+      "Claudio",
+      "Stefano"
+    ]  
+  }
+]

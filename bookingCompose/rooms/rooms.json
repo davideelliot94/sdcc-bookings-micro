@@ -1,0 +1,14 @@
+[
+    { 
+        "name" : "Aula 1",
+        "capacity" : 50
+    },
+    {
+        "name" : "Aula 2",
+        "capacity" : 50
+    },
+    { 
+        "name" : "Aula 3",
+        "capacity" : 50
+    }
+  ]
